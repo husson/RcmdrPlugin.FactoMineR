@@ -9,6 +9,6 @@ Imports: Rcmdr (>= 2.0-0), tcltk
 Depends: FactoMineR
 Description: Rcmdr Plugin for the 'FactoMineR' package.
 License: GPL (>= 2)
-URL: http://factominer.free.fr, http://www.agrocampus-ouest.fr/math/
+URL: http://factominer.free.fr/graphs/RcmdrPlugin.html
 LazyLoad: no
 Encoding: latin1
