@@ -953,6 +953,7 @@ function()                                                                      
         if (RTitle ==" ") commande.plotInd <- paste(commande.plotInd,')', sep="")
         else commande.plotInd <- paste(commande.plotInd,', title="', RTitle,'")', sep="")
       }
+	  commande.plotInd <- paste0("print(",commande.plotInd,")")
       justDoIt(commande.plotInd)
       logger(commande.plotInd)
     }}
@@ -966,6 +967,7 @@ function()                                                                      
         if (WTitle ==" ") commande.plotVar <- paste(commande.plotVar,')', sep="")
         else commande.plotVar <- paste(commande.plotVar,', title="', WTitle,'")', sep="")
       }
+	  commande.plotVar <- paste0("print(",commande.plotVar,")")
       justDoIt(commande.plotVar)
       logger(commande.plotVar)
     }}

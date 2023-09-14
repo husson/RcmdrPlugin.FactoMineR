@@ -1559,6 +1559,7 @@ function()
           if (GTitle ==" ") commande.plotG <- paste(commande.plotG,')', sep="")
           else commande.plotG <- paste(commande.plotG,', title="', GTitle,'")', sep="")
         }
+	    commande.plotG <- paste0("print(",commande.plotG,")")
         justDoIt(commande.plotG)
         logger(commande.plotG)
       }}
@@ -1571,6 +1572,7 @@ function()
           if (ATitle ==" ") commande.plotA <- paste(commande.plotA,')', sep="")
           else commande.plotA <- paste(commande.plotA,', title="', ATitle,'")', sep="")
         }
+	    commande.plotA <- paste0("print(",commande.plotA,")")
         justDoIt(commande.plotA)
         logger(commande.plotA) 
       }}
@@ -1584,6 +1586,7 @@ function()
           if (WTitle ==" ") commande.plotW <- paste(commande.plotW,')', sep="")
           else commande.plotW <- paste(commande.plotW,', title="', WTitle,'")', sep="")
         }
+	    commande.plotW <- paste0("print(",commande.plotW,")")
         justDoIt(commande.plotW)
         logger(commande.plotW)
       }}
@@ -1623,6 +1626,7 @@ function()
             else commande.plotI <- paste(commande.plotI,', title="', RTitle,'")', sep="")
           }
         }
+	    commande.plotI <- paste0("print(",commande.plotI,")")
         justDoIt(commande.plotI)
         logger(commande.plotI)
       }}

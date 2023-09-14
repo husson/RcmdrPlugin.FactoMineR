@@ -1017,6 +1017,7 @@ onOK <- function(){
       if (!is.null(RXlimInd)) commande.plotInd <- paste(commande.plotInd,', xlim=c(', paste(RXlimInd, collapse=", "), ')', sep="")
       if (!is.null(RYlimInd)) commande.plotInd <- paste(commande.plotInd,', ylim=c(', paste(RYlimInd, collapse=", "), ')', sep="")
       commande.plotInd <- paste(commande.plotInd,')', sep="")
+	  commande.plotInd <- paste0("print(",commande.plotInd,")")
       justDoIt(commande.plotInd)
       logger(commande.plotInd)
     }}
@@ -1024,26 +1025,28 @@ onOK <- function(){
     if((Vchoix)&(length(which(ls(envir = .GlobalEnv, all.names = TRUE)==nom.res))>0)){
     if (get(nom.res)$eig[1,2]!=100) {
       if (is.null(Vinvis)) Vinvis <- ""
-	  if (Vinvis!="") commande.plotInd<-paste('plot.MCA(', nom.res, ', axes=c(', paste(Axe, collapse=", "), '), new.plot=TRUE, choix="var", col.var="',Vcol.var,'", col.quali.sup="',Vcol.quali.sup,'", label=c("', paste(Vlabel, collapse='", "'), '"), invisible=c("', paste(Vinvis, collapse='", "'), '")', sep="")
-      else commande.plotInd<-paste('plot.MCA(', nom.res, ', axes=c(', paste(Axe, collapse=", "), '), new.plot=TRUE, choix="var", col.var="',Vcol.var,'", col.quali.sup="',Vcol.quali.sup,'", label=c("', paste(Vlabel, collapse='", "'),'")', sep="")
+	  if (Vinvis!="") commande.plotV<-paste('plot.MCA(', nom.res, ', axes=c(', paste(Axe, collapse=", "), '), new.plot=TRUE, choix="var", col.var="',Vcol.var,'", col.quali.sup="',Vcol.quali.sup,'", label=c("', paste(Vlabel, collapse='", "'), '"), invisible=c("', paste(Vinvis, collapse='", "'), '")', sep="")
+      else commande.plotV<-paste('plot.MCA(', nom.res, ', axes=c(', paste(Axe, collapse=", "), '), new.plot=TRUE, choix="var", col.var="',Vcol.var,'", col.quali.sup="',Vcol.quali.sup,'", label=c("', paste(Vlabel, collapse='", "'),'")', sep="")
 	  if (!is.null(VTitle)) {
-        if (VTitle !=" ") commande.plotInd <- paste(commande.plotInd,', title="', VTitle,'"', sep="")
+        if (VTitle !=" ") commande.plotV <- paste(commande.plotV,', title="', VTitle,'"', sep="")
       }
-      commande.plotInd <- paste(commande.plotInd,')', sep="")
-      justDoIt(commande.plotInd) 
-      logger(commande.plotInd)
+      commande.plotV <- paste(commande.plotV,')', sep="")
+	  commande.plotV <- paste0("print(",commande.plotV,")")
+      justDoIt(commande.plotV) 
+      logger(commande.plotV)
     }}
 
     if((Wchoix)&(length(which(ls(envir = .GlobalEnv, all.names = TRUE)==nom.res))>0)){
     if (get(nom.res)$eig[1,2]!=100) {
-      commande.plotInd<-paste('plot.MCA(', nom.res, ', axes=c(', paste(Axe, collapse=", "), '), new.plot=TRUE, choix="quanti.sup", col.quanti.sup="',Wcol.quanti.sup,'"',', label=c("', paste(Wlabel, collapse='", "'),'")', sep="")
+      commande.plotW<-paste('plot.MCA(', nom.res, ', axes=c(', paste(Axe, collapse=", "), '), new.plot=TRUE, choix="quanti.sup", col.quanti.sup="',Wcol.quanti.sup,'"',', label=c("', paste(Wlabel, collapse='", "'),'")', sep="")
       if (!is.null(WTitle)) {
-        if (WTitle !=" ") commande.plotInd <- paste(commande.plotInd,', title="', WTitle,'"', sep="")
+        if (WTitle !=" ") commande.plotW <- paste(commande.plotW,', title="', WTitle,'"', sep="")
       }
-#      if ("quanti.sup"%in%Wlabel) commande.plotInd <- paste(commande.plotInd, ',label=c("quanti.sup")',sep='') 
-      commande.plotInd <- paste(commande.plotInd,')', sep="")
-      justDoIt(commande.plotInd) 
-      logger(commande.plotInd)
+#      if ("quanti.sup"%in%Wlabel) commande.plotW <- paste(commande.plotW, ',label=c("quanti.sup")',sep='') 
+      commande.plotW <- paste(commande.plotW,')', sep="")
+	  commande.plotW <- paste0("print(",commande.plotW,")")
+      justDoIt(commande.plotW) 
+      logger(commande.plotW)
     }}
 
     # gestion de l'édition de certains resultats

@@ -1012,6 +1012,7 @@ variables.q  <- variables.q[!(variables.q%in%variablefact)]
           if (GTitle ==" ") commande.plotG <- paste(commande.plotG,')', sep="")
           else commande.plotG <- paste(commande.plotG,', title="', GTitle,'")', sep="")
         }
+	    commande.plotG <- paste0("print(",commande.plotG,")")
         justDoIt(commande.plotG)
         logger(commande.plotG)
       }}
@@ -1032,6 +1033,7 @@ variables.q  <- variables.q[!(variables.q%in%variablefact)]
           if (WTitle ==" ") commande.plotW <- paste(commande.plotW,')', sep="")
           else commande.plotW <- paste(commande.plotW,', title="', WTitle,'")', sep="")
         }
+	    commande.plotW <- paste0("print(",commande.plotW,")")
         justDoIt(commande.plotW)
         logger(commande.plotW)
       }}
@@ -1055,6 +1057,7 @@ variables.q  <- variables.q[!(variables.q%in%variablefact)]
             else commande.plotI <- paste(commande.plotI,', title="', RTitle,'")', sep="")
           }
         }
+	    commande.plotI <- paste0("print(",commande.plotI,")")
         justDoIt(commande.plotI)
         logger(commande.plotI)
       }
